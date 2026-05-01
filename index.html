@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>활인침법 4기 — 조장 매뉴얼</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: #f5f3ef;
+      color: #2d2d2d;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: #243d32;
+      color: white;
+      padding: 64px 24px 52px;
+      text-align: center;
+    }
+    .hero .tag {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8fbfaa;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #b0cfbe;
+      line-height: 2;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* ── Section header ── */
+    .section {
+      margin-top: 56px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8b7355;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111;
+      padding-bottom: 14px;
+      border-bottom: 2px solid #243d32;
+      margin-bottom: 24px;
+    }
+
+    /* ── Role card ── */
+    .role-main {
+      background: #243d32;
+      color: white;
+      border-radius: 16px;
+      padding: 32px;
+      font-size: 18px;
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+    .role-sub {
+      background: white;
+      border-left: 4px solid #8b7355;
+      border-radius: 0 12px 12px 0;
+      padding: 18px 22px;
+    }
+    .role-sub p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.9;
+    }
+
+    /* ── Step card ── */
+    .step {
+      display: flex;
+      gap: 16px;
+      background: white;
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 12px;
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      background: #243d32;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .step-body p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.75;
+    }
+    .step-body .note {
+      font-size: 13px;
+      color: #999;
+      margin-top: 6px;
+    }
+
+    /* ── Script quote ── */
+    .script {
+      background: #edf5f0;
+      border-left: 3px solid #243d32;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin: 12px 0 0;
+      font-size: 15px;
+      color: #1e3d2c;
+      font-style: italic;
+    }
+
+    /* ── Checklist ── */
+    .checklist-card {
+      background: white;
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+    .checklist-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8b7355;
+      margin-bottom: 16px;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0ede8;
+      font-size: 15px;
+      color: #333;
+    }
+    .checklist-item:last-child { border-bottom: none; }
+    .checkbox {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      flex-shrink: 0;
+    }
+
+    /* ── Situation card ── */
+    .situation {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 14px;
+    }
+    .situation-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .key-badge {
+      background: #e8a020;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+    .bad {
+      background: #fff3f3;
+      border-left: 3px solid #d94f4f;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin: 8px 0;
+      font-size: 15px;
+      color: #b02020;
+    }
+    .good {
+      background: #edf5f0;
+      border-left: 3px solid #243d32;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin: 8px 0;
+      font-size: 15px;
+      color: #1e3d2c;
+    }
+    .bad::before { content: "❌  "; }
+    .good::before { content: "✅  "; }
+    .situation-note {
+      font-size: 14px;
+      color: #888;
+      margin-top: 14px;
+      line-height: 1.75;
+    }
+
+    /* ── Warning box ── */
+    .warning-box {
+      background: #fff8e6;
+      border: 2px solid #e8a020;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 14px;
+    }
+    .warning-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #a06600;
+      margin-bottom: 14px;
+    }
+    .warning-box p {
+      font-size: 15px;
+      color: #5a3f00;
+      line-height: 1.85;
+    }
+    .warning-box p + p { margin-top: 12px; }
+
+    /* ── Don't item ── */
+    .dont-item {
+      background: white;
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 10px;
+    }
+    .dont-item h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .dont-item p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.75;
+    }
+
+    /* ── Closing ── */
+    .closing {
+      background: #243d32;
+      color: white;
+      border-radius: 20px;
+      padding: 48px 36px;
+      margin-top: 56px;
+      text-align: center;
+    }
+    .closing p {
+      font-size: 16px;
+      color: #9dc4b0;
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+    .closing .highlight {
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      line-height: 1.85;
+    }
+    .closing .final {
+      font-size: 15px;
+      color: #9dc4b0;
+      margin-top: 24px;
+      line-height: 2;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 13px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="tag">활인침법 4기</div>
+  <h1>조장 매뉴얼</h1>
+  <p>가르치는 사람이 아닙니다.<br>먼저 걸어본 사람으로서, 함께 가는 사람입니다.</p>
+</div>
+
+<div class="container">
+
+  <!-- 01 조장이란? -->
+  <div class="section">
+    <div class="section-label">Section 01</div>
+    <div class="section-title">조장이란?</div>
+
+    <div class="role-main">
+      4기 원장님들이 "혼자 공부하다 포기"하지 않도록<br>곁에 있어 주는 사람입니다.
+    </div>
+    <div class="role-sub">
+      <p>가르치는 사람이 아닙니다.<br>먼저 걸어본 사람으로서, 함께 가는 사람입니다.</p>
+    </div>
+  </div>
+
+  <!-- 02 시작 전에 -->
+  <div class="section">
+    <div class="section-label">Section 02</div>
+    <div class="section-title">시작 전에 할 일</div>
+    <p style="color:#666;font-size:15px;margin-bottom:24px;">기수가 시작되면, 첫 조모임 전에 세 가지를 해두세요.</p>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>첫 인사 메시지</h3>
+        <p>길게 쓰지 않아도 됩니다.</p>
+        <div class="script">"안녕하세요, 4기 ○조 조장 [이름]입니다. 저도 3기를 수료한 원장님이에요. 함께 잘 해봐요 :)"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 03 매주 할 일 -->
+  <div class="section">
+    <div class="section-label">Section 03</div>
+    <div class="section-title">매주 할 일</div>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>조모임 (주 1회)</h3>
+        <p>강의 복습, 케이스 나누기, 질문 정리 중 하나라도 하면 됩니다.<br>조장이 먼저 잘 안 된 케이스를 꺼내면 분위기가 풀립니다.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>과제 체크</h3>
+        <p>마감 2일 전 저녁, 조원들의 제출 여부를 확인합니다.<br>미제출 조원에게는 격려 한 마디면 충분합니다.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>질문 취합</h3>
+        <p>조원들의 임상 질문을 모아, 강의 전 운영진 채널에 전달합니다.<br>조장이 직접 답하지 않아도 됩니다. 모으는 것이 역할입니다.</p>
+      </div>
+    </div>
+
+    <div class="checklist-card">
+      <div class="checklist-label">주간 체크리스트</div>
+      <div class="checklist-item"><div class="checkbox"></div>조모임 일정 잡기</div>
+      <div class="checklist-item"><div class="checkbox"></div>마감 2일 전 저녁 — 제출 현황 확인</div>
+      <div class="checklist-item"><div class="checkbox"></div>미제출 조원에게 격려 한 마디</div>
+      <div class="checklist-item"><div class="checkbox"></div>조원 질문 취합 → 강의 전 전달</div>
+      <div class="checklist-item"><div class="checkbox"></div>지쳐 보이는 조원 있으면 개별 연락</div>
+    </div>
+  </div>
+
+  <!-- 04 상황별 스크립트 -->
+  <div class="section">
+    <div class="section-label">Section 04</div>
+    <div class="section-title">이런 상황엔 이렇게</div>
+
+    <div class="situation">
+      <div class="situation-title">상황 1 &nbsp; 조원이 과제를 안 냈을 때</div>
+      <div class="bad">"○○ 원장님, 과제 왜 안 내셨어요?"</div>
+      <div class="good">"○○ 원장님, 잘 지내세요? 과제 준비하시면서 어려운 점은 없으실까요?"</div>
+      <p class="situation-note">마감 2일 전 저녁에 한 번 보내는 것으로 충분합니다. 독촉 문자를 반복하지 않습니다.</p>
+    </div>
+
+    <div class="situation">
+      <div class="situation-title">상황 2 &nbsp; 조원이 포기하고 싶다고 할 때</div>
+      <div class="bad">"그러면 안 되죠, 끝까지 해야죠."</div>
+      <div class="good">"저도 3기 때 딱 그 마음이었어요. 궁금한 거나 힘든 점 있으면 언제든 말씀 해주세요 😊"</div>
+      <p class="situation-note">조언보다 공감이 먼저입니다. 해결책을 줄 필요 없습니다.</p>
+    </div>
+
+    <div class="situation">
+      <div class="situation-title">상황 3 &nbsp; 조원이 임상 질문을 직접 물을 때 &nbsp;<span class="key-badge">핵심</span></div>
+      <div class="bad">"제 경험상 그 케이스는 ○○혈을 쓰는 게 좋더라고요."</div>
+      <div class="good">"저도 그 부분이 헷갈렸는데, 다음 강의에서 같이 여쭤봅시다."</div>
+      <p class="situation-note">조장의 경험과 강의 내용은 다를 수 있습니다. 잘못된 정보가 조원의 진료실에서 환자에게 쓰입니다. 모른다고 하는 것이 가장 신뢰받는 조장입니다.</p>
+    </div>
+
+    <div class="situation">
+      <div class="situation-title">상황 4 &nbsp; 조모임에서 아무도 말을 안 할 때</div>
+      <div class="good">"제가 먼저 이번 주에 고민이었던 케이스 하나 꺼내볼게요."</div>
+      <p class="situation-note">조장이 먼저 실패를 꺼내면, 조원들도 편하게 말할 수 있습니다. 잘된 케이스보다 잘 안 된 케이스가 더 배울 게 많습니다.</p>
+    </div>
+  </div>
+
+  <!-- 05 하지 말아야 할 것 -->
+  <div class="section">
+    <div class="section-label">Section 05</div>
+    <div class="section-title">이것만은 하지 마세요</div>
+
+    <div class="warning-box">
+      <div class="warning-title">⚠️ 강사 흉내 내지 않기</div>
+      <p>조장은 강사가 아닙니다. 문 원장님의 강의 내용을 조장이 임의로 해석해서 전달하지 않습니다.</p>
+      <p>내가 3기 때 배운 내용 + 내 임상 경험 = 내 방식일 뿐입니다.<br>4기 조원들이 배우러 온 것은 문 원장님의 방식입니다.</p>
+    </div>
+
+    <div class="dont-item">
+      <h3>조원 성적 평가하지 않기</h3>
+      <p>잘하는 조원, 못하는 조원을 구분하거나 비교하지 않습니다. 조장의 역할은 심판이 아닙니다.</p>
+    </div>
+
+    <div class="dont-item">
+      <h3>출석 강요하지 않기</h3>
+      <p>결석은 조원의 사정이 있는 겁니다. 독촉 문자를 반복해서 보내지 않습니다. 한 번 안부를 묻는 것으로 충분합니다.</p>
+    </div>
+
+    <div class="dont-item">
+      <h3>개인 임상 홍보에 활용하지 않기</h3>
+      <p>소조 모임을 본인 한의원 홍보나 네트워크 영업에 사용하지 않습니다. 조원들은 공부하러 모인 것입니다.</p>
+    </div>
+
+    <div class="dont-item">
+      <h3>운영진 몰래 별도 규칙 만들지 않기</h3>
+      <p>소조 내에서 별도의 과제, 벌금, 페널티 등을 임의로 만들지 않습니다. 모든 규칙은 운영진과 협의 후 적용합니다.</p>
+    </div>
+
+    <div class="dont-item">
+      <h3>혼자 다 짊어지지 않기</h3>
+      <p>모임 한 번이 어그러져도 괜찮습니다. 소진된 조장은 조원을 도울 수 없습니다. 문제가 생기면 운영진과 먼저 상의합니다.</p>
+    </div>
+  </div>
+
+  <!-- 06 마무리 -->
+  <div class="closing">
+    <p>3기를 완주한 원장님이라면<br>이미 자격이 있습니다.</p>
+    <div class="highlight">"저도 이 길을 걸었다"고<br>말해줄 수 있는 사람이 필요합니다.</div>
+    <p class="final">혼자 10년 걸릴 것, 함께하면 1년으로 단축됩니다.<br>그 "함께"를 만드는 사람이 조장입니다.</p>
+  </div>
+
+  <div class="footer">
+    활인침법 4기 조장 신청 문의: 운영진 연락처
+  </div>
+
+</div>
+</body>
+</html>
